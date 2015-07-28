@@ -220,7 +220,7 @@ mkimage -C none -A arm -T script -d $DEST/output/sdcard/boot/boot.cmd $DEST/outp
 #chroot $DEST/output/sdcard /bin/bash -c "ln -s /boot/vmlinuz-$CHOOSEN_KERNEL /boot/zImage"
 
 # copy boot splash image
-cp $SRC/lib/bin/armbian.bmp $DEST/output/sdcard/boot/boot.bmp
+cp $SRC/lib/bin/bottlenose-dark.bmp $DEST/output/sdcard/boot/boot.bmp
 	
 # add linux firmwares to output image
 unzip -q $SRC/lib/bin/linux-firmware.zip -d $DEST/output/sdcard/lib/firmware
