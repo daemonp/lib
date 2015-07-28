@@ -235,7 +235,7 @@ echo -e "[\e[0;32m ok \x1B[0m] Install desktop"
 #chroot $DEST/output/sdcard /bin/bash -c "debconf-apt-progress -- apt-get -y install xorg lightdm xfce4 xfce4-goodies tango-icon-theme gnome-icon-theme pulseaudio gstreamer0.10-pulseaudio wicd"
 # pwd expiration causes problems
 chroot $DEST/output/sdcard /bin/bash -c "chage -d 10 root"
-chroot $DEST/output/sdcard /bin/bash -c "debconf-apt-progress -- apt-get -y install xserver-xorg xserver-xorg-core xfonts-base xinit slim x11-xserver-utils mate-core mozo pluma mate-themes gnome-icon-theme"
+chroot $DEST/output/sdcard /bin/bash -c "debconf-apt-progress -- apt-get -y install xserver-xorg xserver-xorg-core xfonts-base xinit x11-xserver-utils matchbox-window-manger chromium-browser"
 chroot $DEST/output/sdcard /bin/bash -c "chage -d 0 root"
  
 # configure slim
@@ -247,7 +247,7 @@ cp $SRC/lib/bin/slim-panel.png $DEST/output/sdcard/usr/share/slim/themes/default
 # chroot $DEST/output/sdcard /bin/bash -c "apt-get -y install gnome-core gnome-themes gnome-system-tools software-center xorg gdm3"
 
 
-if [[ $LINUXCONFIG == *sunxi* && $RELEASE == "wheezy" ]]; then
+if [[ $LINUXCONFIG == *sunxi* ]]; then
  chroot $DEST/output/sdcard /bin/bash -c "apt-get -y install xorg-dev xutils-dev x11proto-dri2-dev xutils-dev libdrm-dev"
  # quemu bug walkaround
  git clone https://github.com/ssvb/xf86-video-fbturbo.git $DEST/output/sdcard/tmp/xf86-video-fbturbo
